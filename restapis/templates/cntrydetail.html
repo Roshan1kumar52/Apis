@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ country.name }} Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">{{ country.name }}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Capital:</strong> {{ country.capital }}</p>
+                <p><strong>Region:</strong> {{ country.region }}</p>
+                <p><strong>Subregion:</strong> {{ country.subregion }}</p>
+                <p><strong>Population:</strong> {{ country.population }}</p>
+                <p><strong>Area:</strong> {{ country.area }} km²</p>
+                <p><strong>Languages:</strong> {{ country.languages }}</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ country.flag }}" alt="Flag of {{ country.name }}" class="img-fluid">
+            </div>
+        </div>
+        <a href="{% url 'countries_list' %}" class="btn btn-primary my-4">Back to Country List</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Countries</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for country in ctry %}
+                <tr>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.capital }}</td>
+                    <td>
+                        {% if country.alpha3Code %}
+                            <a href="{% url 'country_detail' country_code=country.alpha3Code %}" class="btn btn-info">View Details</a>
+                        {% else %}
+                            No details available
+                        {% endif %}
+                    </td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
